@@ -93,7 +93,11 @@ let runFable additionalArgs =
     DotNetCli.RunCommand (fun p -> { p with WorkingDir = "src" } ) cmd
 
 Target "Build" (fun _ ->
-    runFable "-p"
+    runFable ""
+)
+
+Target "Watch" (fun _ ->
+    runFable "--watch"
 )
 
 let fsgrammarDir = "paket-files/github.com/ionide/ionide-fsgrammar/grammar"

@@ -1,7 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
 var fableUtils = require("fable-utils");
-var nodeExternals = require('webpack-node-externals');
 
 function resolve(filePath) {
   return path.join(__dirname, filePath)
@@ -26,7 +25,9 @@ module.exports = {
   resolve: {
     modules: [resolve("./node_modules/")]
   },
-  externals: [nodeExternals()],
+  externals: {
+    "vscode": "commonjs vscode"
+  },
   module: {
     rules: [
       {
