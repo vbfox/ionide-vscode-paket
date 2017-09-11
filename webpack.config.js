@@ -19,8 +19,9 @@ module.exports = {
   devtool: "source-map",
   entry: resolve('./src/Ionide.Paket.fsproj'),
   output: {
-    filename: 'bundle.js',
+    filename: 'paket.js',
     path: resolve('./release'),
+    libraryTarget: 'commonjs'
   },
   resolve: {
     modules: [resolve("./node_modules/")]

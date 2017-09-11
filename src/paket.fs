@@ -380,11 +380,10 @@ let private saveHandler (doc : TextDocument) =
     if (doc.fileName.EndsWith "paket.references" || doc.fileName.EndsWith "paket.dependencies" ) && config then
         Install ()
 
-let activate(context: vscode.ExtensionContext) =
+let activate (context: vscode.ExtensionContext) =
     let registerCommand com (f: unit->unit) =
         vscode.commands.registerCommand(com, unbox<Func<obj,obj>> f)
         |> context.subscriptions.Add
-
 
     let df = createEmpty<DocumentFilter>
     df.language <- Some "paket-dependencies"
